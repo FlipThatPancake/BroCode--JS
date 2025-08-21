@@ -1165,3 +1165,160 @@ class Person {
 }
 
 const person = new Person("John", "Doe", 30);
+
+
+
+
+// DESTRUCTURING
+
+// destructuring = extract values from arrays and objects, then assign them to variables in a convenient way, [] = to perform array destructuring, {} to perform object dest.
+
+// Example 1 - Swapping value of two variables
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+// Example two -- swapping elements in an array
+
+const colors = ["red", "green", "blue"];
+[colors[0], colors[1]] = [colors[1], colors[0]]
+
+// Example 3 - Extracting values from an array
+
+const numbers4 = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = numbers4; // Extract first two elements and the rest of the array
+
+console.log(first); // Output: 1
+console.log(second); // Output: 2
+console.log(rest); // Output: [3, 4, 5] (the rest of the array)
+
+// Example 4 - Extracting values from an object (with default values)
+
+const personObject3 = {
+    name: "Spongebob",
+    age: 30,
+    occupation: "Fry Cook"
+};
+
+const personObject4 = {
+    name: "Patrick",
+    age: 28,
+};
+
+const { name55, age55, occupation55="Unemployed" } = personObject3; // Extract properties from the object
+console.log(name55); // Output: "Spongebob"
+console.log(age55); // Output: 30
+console.log(occupation55); // Output: "Fry Cook"
+
+const { name56, age56, occupation56="Unemployed" } = personObject4; // Extract properties from the object
+console.log(name56); // Output: "Patrick"
+console.log(age56); // Output: 28
+console.log(occupation56); // Output: "Unemployed" (default value since occupation is not defined in personObject4)
+
+// Example 5 - Destructuring in function parameters
+
+function displayPerson({ name, age, occupation = "Unemployed" }) {
+    console.log(`Name: ${name}, Age: ${age}, Occupation: ${occupation}`);
+}
+
+displayPerson(personObject3); // Output: "Name: Spongebob, Age: 30, Occupation: Fry Cook"
+displayPerson(personObject4); // Output: "Name: Patrick, Age: 28, Occupation: Unemployed"
+
+// Example 6 - Nested destructuring
+
+const user = {
+    id: 1,
+    name: "Spongebob",
+    address: {
+        street: "123 Bikini Bottom",
+        city: "Bikini Bottom",
+        country: "Ocean"
+    }
+};  
+
+const { id, name: userName, address: { street, city, country } } = user; // Nested destructuring
+console.log(id); // Output: 1
+console.log(userName); // Output: "Spongebob"
+console.log(street); // Output: "123 Bikini Bottom"
+console.log(city); // Output: "Bikini Bottom"
+console.log(country); // Output: "Ocean"
+
+// Example 7 - Destructuring with function return values
+
+function getCoordinates() {
+    return [10, 20, 30]; // Return an array of coordinates
+}
+
+const [x5, y5, z5] = getCoordinates(); // Destructure the returned array
+console.log(x5); // Output: 10
+console.log(y5); // Output: 20
+console.log(z5); // Output: 30
+
+
+// NESTED OBJECTS
+
+// nested objects = objects that contain other objects as properties
+
+const userNested = {
+    id: 1,
+    name: "Spongebob",
+    address: {
+        street: "123 Bikini Bottom",
+        city: "Bikini Bottom",
+        country: "Ocean"
+    },
+    hobbies: ["Jellyfishing", "Karate", "Cooking"],
+    getFullAddress: function() {    
+        return `${this.address.street}, ${this.address.city}, ${this.address.country}`;
+    }
+};
+
+console.log(userNested.name);
+// Output: "Spongebob" (accessing the name property)
+
+console.log(userNested.address.city);
+// Output: "Bikini Bottom" (accessing the city property of the address object)
+
+console.log(userNested.hobbies[0]);
+// Output: "Jellyfishing" (accessing the first hobby in the hobbies array)
+
+console.log(userNested.getFullAddress());
+// Output: "123 Bikini Bottom, Bikini Bottom, Ocean" (calling the getFullAddress method)
+
+for (const property in userNested.address) {
+    console.log(`${property}: ${userNested.address[property]}`);
+    // Output: "street: 123 Bikini Bottom", "city: Bikini Bottom", "country: Ocean"
+}
+
+// Example 2
+
+class PersonNested {
+    constructor(name, age, ...address) {
+        this.name = name;
+        this.age = age;
+        this.address = new AddressNested(...address);
+    }
+}
+
+class AddressNested {
+    constructor(street, city, country) {
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+const personNested = new PersonNested("Spongebob", 30, "123 Bikini Bottom", "Bikini Bottom", "Ocean");
+
+const personNested2 = new PersonNested("Patrick", 28, "456 Jellyfish Fields", "Bikini Bottom", "Ocean");
+
+console.log(personNested.name);
+// Output: "Spongebob"
+
+console.log(personNested.address.city);
+// Output: "Bikini Bottom"
+
+console.log(personNested2.address.street);
+// Output: "456 Jellyfish Fields"
