@@ -1167,8 +1167,6 @@ class Person {
 const person = new Person("John", "Doe", 30);
 
 
-
-
 // DESTRUCTURING
 
 // destructuring = extract values from arrays and objects, then assign them to variables in a convenient way, [] = to perform array destructuring, {} to perform object dest.
@@ -1322,3 +1320,44 @@ console.log(personNested.address.city);
 
 console.log(personNested2.address.street);
 // Output: "456 Jellyfish Fields"
+
+
+
+
+// ARRAYS OF OBJECTS
+
+const fruits995 = [
+    { name: "apple", color: "red", calories: 95 },
+    { name: "banana", color: "yellow", calories: 105  },
+    { name: "grape", color: "purple", calories: 30  }
+];
+
+for (let fruit of fruits995) {
+    console.log(`Fruit: ${fruit.name}, Color: ${fruit.color}`);
+    
+    // Output: "Fruit: apple, Color: red", "Fruit: banana, Color: yellow", "Fruit: grape, Color: purple"
+}
+
+// Push
+fruits995.push({ name: "coconut", color: "brown", calories: 159  })
+
+// Splice
+fruits995.splice(1, 1); // Remove the second element (banana)
+
+// forEach()
+fruits995.forEach(fruit => console.log(`Fruit: ${fruit.name}`));
+// Output: "Fruit: apple", "Fruit: grape", "Fruit: coconut"
+
+// map
+const fruitNames = fruits995.map(fruit => fruit.name);
+console.log(fruitNames); // Output: ["apple", "grape", "coconut"]
+
+// filter
+const redFruits = fruits995.filter(fruit => fruit.color === "red");
+console.log(redFruits); // Output: [{ name: "apple", color: "red" }]
+
+// reduce
+// find fruit with the highest amount of calories
+const maxFruit = fruits995.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max);
+
+
