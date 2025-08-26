@@ -1,0 +1,84 @@
+    /* <div class="container">
+        <h1>Interest Calculator</h1>
+        <form id="interestForm">
+            <label for="principal">Principal Amount ($):</label>
+            <input type="number" id="principal" name="principal" required>
+
+            <label for="rate">Annual Interest Rate (%):</label>
+            <input type="number" id="rate" name="rate" step="0.01" required>
+
+            <label for="time">Time (years):</label>
+            <input type="number" id="time" name="time" required>
+
+            <button type="button" onclick="calculateCompoundInterest()">Calculate Interest</button>
+
+            <p id="total"> Total: <span id="total-amount>">$0.00</span></p>
+        </form>
+    </div> */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#total {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #333;
+}
+
+#total-amount {
+    font-weight: bold;
+    color: #007bff;
+}

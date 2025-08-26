@@ -1,0 +1,60 @@
+body {
+    font-family: Verdana;
+    font-size: 2em;
+    text-align: center;
+}
+
+#countLabel {
+    display: block;
+    text-align: center;
+    font-size: 5em;
+    font-family: Helvetica, sans-serif;
+}
+
+#btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.1em;
+}
+
+.buttons {
+    padding: 10px 20px;
+    font-size: 0.5em;
+    font-family: Helvetica, sans-serif;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#rollbtn {
+    font-size: 1em;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+#diceResult {
+    font-size: 1em;
+    font-family: Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+div {
+    margin: 10px;
+    padding: 0px 10px 100px 10px;
+}
+
+#submitBtn {
+    font-size: 1em;
+    padding: 5px 25px;
+    margin: 10px;
+    border-radius: 5px;
+}
