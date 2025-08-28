@@ -1,0 +1,32 @@
+/* <body>
+    <div id="clock-container">
+        <div id="clock">00:00:00</div>
+    </div>
+
+    <script src="script.js"></script>
+</body> */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #282c34;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#clock-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#clock {
+    font-size: 5em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: white;
+}
