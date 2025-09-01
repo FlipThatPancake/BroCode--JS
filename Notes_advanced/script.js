@@ -154,3 +154,79 @@ try {
 
 
 
+// DOM
+
+// DOM = Document Object Model; an API that represents and interacts with HTML, XML documents; it provides a structured representation of the document as a tree of objects and defines methods by which these objects can be accessed and manipulated
+
+// DOM Manipulation = the process of dynamically changing the structure, style, or content of a web document using JavaScript
+
+// Example: Changing the text of an HTML element
+
+// HTML: <div id="myDiv">Hello, World!</div>
+
+const myDiv = document.getElementById("myDiv");
+myDiv.textContent = "Hello, DOM!";
+
+// Example: Adding a new element to the DOM
+
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "This is a new paragraph.";
+document.body.appendChild(newParagraph);
+
+// Example: Adding an event listener to a button
+
+// HTML: <button id="myButton">Click Me</button>
+
+const myButton = document.getElementById("myButton");
+myButton.addEventListener("click", () => {
+    alert("Button was clicked!");
+});
+
+// Example: Changing the style of an element
+
+myDiv.style.color = "blue";
+myDiv.style.fontSize = "20px";
+
+// Example: Removing an element from the DOM
+
+// HTML: <div id="removeMe">This will be removed.</div>
+
+const removeMe = document.getElementById("removeMe");
+removeMe.parentNode.removeChild(removeMe);
+
+
+
+// ELEMENT SELECTORS
+
+
+// Common DOM Manipulation Methods:
+// 1. getElementById()
+// 2. getElementsByClassName()
+// 3. getElementsByTagName()
+// 4. querySelector()
+// 5. querySelectorAll()
+// 6. createElement()
+// 7. appendChild()
+// 8. removeChild()
+// 9. setAttribute()
+// 10. addEventListener()
+
+
+// Turn class of HTMLCollection into an array
+
+const items = document.getElementsByClassName("item");
+const itemsArray = Array.from(items);
+itemsArray.forEach(item => {
+    console.log(item.textContent);
+});
+
+// querySelector() = returns the first element that matches a specified CSS selector(s) in the document
+
+const element = document.querySelector(".container .item"); // Selects the first element with class "item" inside an element with class "container"
+
+// querySelectorAll() = returns a static NodeList representing a list of the document's elements that match the specified group of selectors
+
+const elements = document.querySelectorAll(".container .item"); // Selects all elements with class "item" inside an element with class "container" and returns a NodeList (static list)
+elements.forEach(el => {
+    console.log(el.textContent);
+});
