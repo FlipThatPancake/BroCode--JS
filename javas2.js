@@ -176,3 +176,34 @@ clearTimeout(timeoutId) // cancels the timeout before it executes
 // TIME
 
 // console.time() = method that starts a timer you can use to track how long an operation takes. Call console.timeEnd() with the same label to stop the timer and log the elapsed time.
+
+function timeLoop() {
+    console.time(`test`);
+
+    for (let i = 0; i < 1000000; i++) {
+        // some code
+    }
+
+    console.timeEnd(`test`); // Output: test: 12.345ms (the time it took to execute the code between console.time() and console.timeEnd())
+}
+
+
+
+// TO LOCALE STRING
+
+// .toLocaleString() = method that converts a number into a string, using local language formatting conventions
+
+const number = 123456.789;
+
+// US English uses commas as thousands separators and a period for the decimal point
+console.log(number.toLocaleString('en-US')); // Output: "123,456.789"
+
+// German uses periods as thousands separators and a comma for the decimal point
+console.log(number.toLocaleString('de-DE')); // Output: "123.456,789"
+
+// Arabic in most Arabic-speaking countries uses commas as thousands separators and a period for the decimal point, but the digits are in Arabic-Indic form
+console.log(number.toLocaleString('ar-EG')); // Output: "١٢٣٬٤٥٦٫٧٨٩"
+
+// Options can be used to customize the output
+const options = { style: 'currency', currency: 'USD' };
+console.log(number.toLocaleString('en-US', options)); // Output: "$123,456.79"
