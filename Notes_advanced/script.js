@@ -171,7 +171,15 @@ myDiv.textContent = "Hello, DOM!";
 
 const newParagraph = document.createElement("p");
 newParagraph.textContent = "This is a new paragraph.";
+newParagraph.id = "myParagraph";
 document.body.appendChild(newParagraph);
+
+// Add a new element before an existing element
+const newH1 = document.createElement("h1");
+newH1.textContent = "This is h1";
+newH1.id = "myH1";
+const elementBefore = document.getElementById("myParagraph");
+document.body.insertBefore(newH1, newParagraph);
 
 // Example: Adding an event listener to a button
 
@@ -230,3 +238,74 @@ const elements = document.querySelectorAll(".container .item"); // Selects all e
 elements.forEach(el => {
     console.log(el.textContent);
 });
+
+
+
+// DOM NAVIGATION
+
+// DOM Navigation = the process of moving through the DOM tree to access and manipulate elements and nodes
+
+// Common DOM Navigation Properties:
+// 1. parentNode
+// 2. childNodes
+// 3. firstChild
+// 4. lastChild
+// 5. nextSibling
+// 6. previousSibling
+// 7. children
+// 8. firstElementChild
+// 9. lastElementChild
+// 10. nextElementSibling
+// 11. previousElementSibling
+
+const list = document.getElementById("myList");
+
+// Accessing parent node
+const parent = list.parentNode;
+console.log("Parent Node:", parent);
+// Example output: "Parent Node: <div id="container">...</div>"
+
+// Accessing child nodes
+const children = list.childNodes; // Includes text nodes (like whitespace)
+children.forEach(child => {
+    console.log("Child Node:", child);
+});
+// Example output: "Child Node: #text", "Child Node: <li>Item 1</li>", etc.
+
+// Accessing first and last child
+const firstChild = list.firstChild; // Could be a text node
+const lastChild = list.lastChild;   // Could be a text node
+console.log("First Child:", firstChild);
+console.log("Last Child:", lastChild);
+// Example output: "First Child: #text", "Last Child: #text"
+
+// Accessing next and previous siblings
+// Example html structure:
+// <div id="sibling1">Sibling 1</div>
+// <div id="sibling2">Sibling 2</div>
+// <div id="sibling3">Sibling 3</div>
+
+const sibling2 = document.getElementById("sibling2");
+const nextSibling = sibling2.nextSibling; // Could be a text node
+const previousSibling = sibling2.previousSibling; // Could be a text node
+console.log("Next Sibling:", nextSibling);
+console.log("Previous Sibling:", previousSibling);
+// Example output: "Next Sibling: #text", "Previous Sibling: #text"
+
+
+// Child vs element Child
+// Child nodes include all node types (element nodes, text nodes, comment nodes, etc.)
+// Element node example: <div>, <p>, <span>, etc.
+// Text node example: the text inside an element
+// Comment node example: <!-- This is a comment -->
+
+
+// Accessing only element children
+const elementChildren = list.children; // Only element nodes
+Array.from(elementChildren).forEach(child => {
+    console.log("Element Child:", child);
+});
+// Example output: "Element Child: <li>Item 1</li>", etc.
+
+// Accessing first and last element child
+const firstElementChild = list.first
