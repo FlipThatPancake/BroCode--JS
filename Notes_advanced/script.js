@@ -309,3 +309,106 @@ Array.from(elementChildren).forEach(child => {
 
 // Accessing first and last element child
 const firstElementChild = list.first
+
+
+
+// EVENTS
+
+// eventListener = a procedure in JavaScript that waits for an event to occur
+
+// Common Events:
+// 1. click
+// 2. mouseover
+// 3. mouseout
+// 4. keydown
+// 5. keyup
+// 6. submit
+// 7. load
+// 8. resize
+// 9. scroll
+// 10. change
+
+
+// Example: Adding a click event listener to a button
+
+const clickButton = document.getElementById("clickButton");
+
+function changeText(event) {
+    event.target.textContent = "Clicked!";
+}
+
+clickButton.addEventListenter("click", changeText);
+clickButton.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor = "lightblue";
+});
+
+clickButton.addEventListenter("click", function(event) {
+    event.target.textContent = "Clicked!";
+});
+
+
+// Example: move object with arrows 
+
+// create a small circle in DOM using JS
+const circle = document.createElement("div");
+circle.style.width = "50px";
+circle.style.height = "50px";
+circle.style.backgroundColor = "red";
+circle.style.borderRadius = "50%";
+circle.style.position = "absolute";
+circle.style.top = "100px";
+circle.style.left = "100px";
+document.body.appendChild(circle);
+
+// move the circle using arrow keys
+document.addEventListener("keydown", (event) => {
+    const step = 10; // number of pixels to move
+    const rect = circle.getBoundingClientRect();
+    switch(event.key) {
+        case "ArrowUp":
+            circle.style.top = `${rect.top - step}px`;
+            break;
+        case "ArrowDown":
+            circle.style.top = `${rect.top + step}px`;
+            break;
+        case "ArrowLeft":
+            circle.style.left = `${rect.left - step}px`;
+            break;
+        case "ArrowRight":
+            circle.style.left = `${rect.left + step}px`;
+            break;
+    }
+});
+
+// alternative way
+
+const step = 10;
+let x = 0;
+let y = 0;
+
+
+
+document.addEventListener("keydown", event => {
+
+    event.preventDefault(); // prevents the viewport from following object if it moves beyond view port
+    
+    if (event.key.startsWith("Arrow"))
+        
+        switch (event.key) {
+            case "ArrowUp":
+                y -= step;
+                break;
+            case "ArrowDown":
+                y += step;
+                break;
+            case "ArrowLeft":
+                x -= step;
+                break;
+            case "ArrowRight":
+                x += step;
+                break;
+        }
+    
+    circle.style.top = `${y}px`;
+    circle.style.left = `${x}px`;
+})
