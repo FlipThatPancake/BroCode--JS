@@ -412,3 +412,76 @@ document.addEventListener("keydown", event => {
     circle.style.top = `${y}px`;
     circle.style.left = `${x}px`;
 })
+
+
+
+
+
+// SHOW AND HIDE HTML USING JS
+
+// Example: Toggle visibility of a div when a button is clicked
+
+// HTML: 
+// <button id="toggleButton">Toggle Visibility</button>
+// <div id="toggleDiv">This is a toggleable div.</div>
+
+const toggleButton = document.getElementById("toggleButton");
+const toggleDiv = document.getElementById("toggleDiv");
+
+toggleButton.addEventListener("click", () => {
+    if (toggleDiv.style.display === "none") {
+        toggleDiv.style.display = "block"; // Show the div
+    } else {
+        toggleDiv.style.display = "none"; // Hide the div
+    }
+});
+
+
+
+
+// NODELIST
+
+// NodeList = a static collection of HTML elements by (id, class, element). Can be created by using querySelectorAll(). Similar to an array, but no (map, filter, reduce). NodeLIst won't update to automatically reflect changes. If you add a new element that should be in the NodeList by class or id, it won't update until you manually update the NodeList. 
+
+// Methods of a NodeList:
+
+
+let buttons = document.querySelectorAll(".myButtons");
+
+// Methods of a NodeList:
+
+let buttons = document.querySelectorAll(".myButtons");
+
+// 1. forEach(callback)
+// Loop through each node in the NodeList
+buttons.forEach(button => {
+    button.addEventListener("event", event => {
+        event.target.style.backgroundColor = "tomato";
+    })
+});
+
+// 2. item(index)
+// Get the node at the specified index
+let firstButton = buttons.item(0);
+
+// 3. entries()
+// Returns an iterator with [index, node] pairs
+for (let [i, btn] of buttons.entries()) {
+    console.log(i, btn);
+}
+
+// 4. keys()
+// Returns an iterator for the indices
+for (let i of buttons.keys()) {
+    console.log(i);
+}
+
+// 5. values()
+// Returns an iterator for the nodes
+for (let btn of buttons.values()) {
+    console.log(btn);
+}
+
+// You can also convert a NodeList to an array if you want to use array methods like map, filter, etc.:
+let buttonsArray = Array.from(buttons);
+buttonsArray.map(btn => btn.textContent);
