@@ -73,7 +73,7 @@ try {
     if (divisor === "0") {
         throw new Error("Cannot divide by zero.");
     }
-    
+
     // Perform the division
     const result = dividend / divisor;
     console.log(`Result: ${result}`);
@@ -342,7 +342,7 @@ clickButton.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = "lightblue";
 });
 
-clickButton.addEventListenter("click", function(event) {
+clickButton.addEventListenter("click", function (event) {
     event.target.textContent = "Clicked!";
 });
 
@@ -364,7 +364,7 @@ document.body.appendChild(circle);
 document.addEventListener("keydown", (event) => {
     const step = 10; // number of pixels to move
     const rect = circle.getBoundingClientRect();
-    switch(event.key) {
+    switch (event.key) {
         case "ArrowUp":
             circle.style.top = `${rect.top - step}px`;
             break;
@@ -391,9 +391,9 @@ let y = 0;
 document.addEventListener("keydown", event => {
 
     event.preventDefault(); // prevents the viewport from following object if it moves beyond view port
-    
+
     if (event.key.startsWith("Arrow"))
-        
+
         switch (event.key) {
             case "ArrowUp":
                 y -= step;
@@ -408,7 +408,7 @@ document.addEventListener("keydown", event => {
                 x += step;
                 break;
         }
-    
+
     circle.style.top = `${y}px`;
     circle.style.left = `${x}px`;
 })
@@ -485,3 +485,46 @@ for (let btn of buttons.values()) {
 // You can also convert a NodeList to an array if you want to use array methods like map, filter, etc.:
 let buttonsArray = Array.from(buttons);
 buttonsArray.map(btn => btn.textContent);
+
+
+
+
+// CLASSLIST
+
+// classList = a read-only property that returns a live DOMTokenList collection of the class attributes of the element. It provides methods to add, remove, toggle, and check for classes on an element
+
+// Common classList Methods:
+// 1. add(className)
+// 2. remove(className)
+// 3. toggle(className)
+// 4. contains(className)
+// 5. replace(oldClass, newClass)
+
+
+// Example: Using classList to add class to an element
+
+// HTML: <div id="myElement" class="box"></div>
+// css: .active { background-color: yellow; }
+
+const myElement = document.getElementById("myElement");
+myElement.classList.add("active"); // Adds the "active" class to the element
+
+// Example: Using classList to toggle class from an element on mouseover
+
+myElement.addEventListener("mouseover", () => {
+    myElement.classList.toggle("active"); // Removes the "active" class from the element
+})
+
+// Exmaple: Using classList to check if an element has a specific class
+
+if (myElement.classList.contains("box")) {
+    console.log("Element has the 'box' class.");
+} else {
+    console.log("Element does not have the 'box' class.");
+}
+
+// Example: Using classList to replace a class on an element
+
+myElement.classList.replace("box", "container"); // Replaces the "box" class with "container" class
+
+
