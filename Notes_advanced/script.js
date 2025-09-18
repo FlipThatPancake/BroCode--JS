@@ -528,3 +528,40 @@ if (myElement.classList.contains("box")) {
 myElement.classList.replace("box", "container"); // Replaces the "box" class with "container" class
 
 
+
+
+// FETCH
+
+// = function used for making HTTP requests to fetch resources (JSON style data, images, files). SImplifies the process of making network requests and handling responses. It returns a Promise that resolves to the Response object representing the response to the request
+
+
+// Example: Fetching data from an API and handling the response
+
+fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .then(response => {
+        
+        if (!response.ok) {
+            throw new Error("Could not fetch resource");
+        }
+        return response.json()
+    })
+    .then(data => { data.name })
+    .catch(error => console.error("Error fetching data:", error));
+
+
+// Example with await and async
+
+fetchPokemon();
+
+async function fetchPokemon() {
+    try {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+        if (!response.ok) {
+            throw new Error("Could not fetch resource");
+        }
+        const data = await response.json();
+        console.log(data.name);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
