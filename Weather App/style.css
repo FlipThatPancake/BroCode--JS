@@ -1,0 +1,88 @@
+    /* <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <form class="weatherForm">
+            <input type="text" name="cityInput" placeholder="Enter City">
+            <button type="submit">Get Weather</button>
+        </form>
+
+        <div class="card">
+            <h1 class="cityDisplay">City Name</h1>
+            <p class="tempDisplay">Temperature°F</p>
+            <p class="humidityDisplay">Humidity: %</p>
+            <p class="descDisplay">Description</p>
+            <p class="weatherEmoji">🌤️</p>
+            <p class="errorDisplay"></p>
+        </div>
+
+        
+        <script src="scripts.js" async defer></script>
+    </body> */
+
+
+/* <body>
+
+/* styling for the weather app */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #6dd5fa, #2980b9);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+form.weatherForm {
+    margin-bottom: 20px;
+}
+
+form.weatherForm input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+}
+
+form.weatherForm button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+}
+
+form.weatherForm button:hover {
+    background-color: #2980b9;
+}
+
+.card {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    display: none; /* hide card initially */
+}
+
+.card h1, .card p {
+    margin: 10px 0;
+}
+
+.card .weatherEmoji {
+    font-size: 50px;
+}
+
+.errorDisplay {
+    color: #ff4c4c;
+    font-weight: bold;
+}
+
+.tempDisplay {
+    /* use rem or em for scalability */
+    font-size: 1.4rem;
+    font-weight: bold;
+    /* display: hidden; */
+}
