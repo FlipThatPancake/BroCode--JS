@@ -1,28 +1,4 @@
-    /* <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-        <form class="weatherForm">
-            <input type="text" name="cityInput" placeholder="Enter City">
-            <button type="submit">Get Weather</button>
-        </form>
-
-        <div class="card">
-            <h1 class="cityDisplay">City Name</h1>
-            <p class="tempDisplay">Temperature°F</p>
-            <p class="humidityDisplay">Humidity: %</p>
-            <p class="descDisplay">Description</p>
-            <p class="weatherEmoji">🌤️</p>
-            <p class="errorDisplay"></p>
-        </div>
-
-        
-        <script src="scripts.js" async defer></script>
-    </body> */
-
-
-/* <body>
 
 /* styling for the weather app */
 body {
@@ -65,10 +41,22 @@ form.weatherForm button:hover {
     max-width: 300px;
     margin: 0 auto;
     display: none; /* hide card initially */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.card h1, .card p {
-    margin: 10px 0;
+.cityDisplay {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tempDisplay {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 5px 0;
 }
 
 .card .weatherEmoji {
@@ -76,13 +64,8 @@ form.weatherForm button:hover {
 }
 
 .errorDisplay {
-    color: #ff4c4c;
-    font-weight: bold;
-}
-
-.tempDisplay {
-    /* use rem or em for scalability */
-    font-size: 1.4rem;
-    font-weight: bold;
-    /* display: hidden; */
+    color: #fff; /* fallback for most browsers */
+    color: color-contrast(in srgb on #2980b9 to white, black);
+    font-style: italic;
+    font-weight: 100;
 }
